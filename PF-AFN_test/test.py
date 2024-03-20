@@ -66,7 +66,7 @@ for epoch in range(1,2):
         os.makedirs(path, exist_ok=True)
         sub_path = path + '/PFAFN'
         os.makedirs(sub_path,exist_ok=True)
-
+        print(data["p_name"])
         if step % 1 == 0:
             a = real_image.float().cuda()
             b= clothes.cuda()
