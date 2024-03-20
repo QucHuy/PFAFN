@@ -21,6 +21,8 @@ class AlignedDataset(BaseDataset):
 
         dir_E = '_edge'
         self.dir_E = os.path.join(opt.dataroot, opt.phase + dir_E)
+        self.im_name = []
+
 
     def __getitem__(self, index):        
 
@@ -44,7 +46,7 @@ class AlignedDataset(BaseDataset):
         E = Image.open(E_path).convert('L')
         E_tensor = transform_E(E)
 
-        input_dict = { 'image': I_tensor,'clothes': C_tensor, 'edge': E_tensor}
+        input_dict = { 'image': I_tensor,'clothes': C_tensor, 'edge': E_tensor, 'p_name': im_name}
         return input_dict
 
     def __len__(self):
